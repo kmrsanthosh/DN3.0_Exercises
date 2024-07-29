@@ -3,5 +3,5 @@
 ### Roadmap
 
 - [ ] Week 1
-  - [ ] Design Patterns and Principles
+  - [x] Design Patterns and Principles
   - [ ] Data Structures and Algorithms
