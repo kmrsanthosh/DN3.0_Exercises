@@ -11,10 +11,10 @@
 
 2. Doubly Linked List:
 
-   1. Each node has data, a pointer to the next node, and a pointer to the previous node.
-   2. Traversal is possible in both directions (forward and backward).
-   3. Takes more memory per node due to the extra pointer.
-   4. More flexible but slightly more complex to implement than singly linked lists.
+   - Each node has data, a pointer to the next node, and a pointer to the previous node.
+   - Traversal is possible in both directions (forward and backward).
+   - Takes more memory per node due to the extra pointer.
+   - More flexible but slightly more complex to implement than singly linked lists.
 
 ### Analysis
 
