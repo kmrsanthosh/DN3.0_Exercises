@@ -11,3 +11,7 @@
 - [x] Week 1
   - [x] Design Patterns and Principles
   - [x] Data Structures and Algorithms
+
+- [x] Week 2
+  - [x] PLSQL
+  - [x] Spring Core Maven
