@@ -14,11 +14,17 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "employees")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@NamedQueries({
+        @NamedQuery(name = "Employee.findByDepartmentNamedQuery", query = "SELECT e FROM Employee e WHERE e.department.name = :departmentName"),
+        @NamedQuery(name = "Employee.countByDepartmentNamedQuery", query = "SELECT COUNT(e) FROM Employee e WHERE e.department.name = :departmentName")
+})
 
 public class Employee {
     @Id
@@ -34,5 +40,11 @@ public class Employee {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id", nullable = false)
     private Department department;
+
+    @Column(nullable = false)
+    private LocalDate hireDate;
+
+    @Column(nullable = false)
+    private Double salary;
 
 }
