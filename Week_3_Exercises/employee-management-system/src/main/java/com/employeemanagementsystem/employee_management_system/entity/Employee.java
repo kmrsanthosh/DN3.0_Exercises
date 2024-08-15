@@ -2,18 +2,13 @@ package com.employeemanagementsystem.employee_management_system.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.BatchSize;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import jakarta.persistence.*;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 
 import java.time.LocalDate;
 
@@ -27,6 +22,7 @@ import java.time.LocalDate;
         @NamedQuery(name = "Employee.findByDepartmentNamedQuery", query = "SELECT e FROM Employee e WHERE e.department.name = :departmentName"),
         @NamedQuery(name = "Employee.countByDepartmentNamedQuery", query = "SELECT COUNT(e) FROM Employee e WHERE e.department.name = :departmentName")
 })
+@BatchSize(size = 30)
 public class Employee extends Auditable<String> {
 
     @Id
@@ -41,6 +37,7 @@ public class Employee extends Auditable<String> {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id", nullable = false)
+    @Fetch(FetchMode.SELECT)
     private Department department;
 
     @Column(nullable = false)

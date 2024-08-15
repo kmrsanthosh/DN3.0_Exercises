@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.employeemanagementsystem.employee_management_system.entity.Employee;
+import com.employeemanagementsystem.employee_management_system.projection.EmployeeDetailDTO;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -38,5 +39,8 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
     @Query("SELECT e FROM Employee e WHERE e.name LIKE %:name%")
     Page<Employee> searchByName(@Param("name") String name, Pageable pageable);
+
+    @Query("SELECT new com.example.EmployeeManagementSystem.projection.EmployeeDetailDTO(e.name, e.email, e.salary, e.department.name) FROM Employee e")
+    List<EmployeeDetailDTO> findAllEmployeeDetails();
 
 }
