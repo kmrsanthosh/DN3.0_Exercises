@@ -3,6 +3,7 @@ package com.employeemanagementsystem.employee_management_system.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.EqualsAndHashCode;
 
 import jakarta.persistence.*;
 
@@ -16,6 +17,7 @@ import jakarta.persistence.ManyToOne;
 
 import java.time.LocalDate;
 
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "employees")
 @Data
@@ -25,8 +27,8 @@ import java.time.LocalDate;
         @NamedQuery(name = "Employee.findByDepartmentNamedQuery", query = "SELECT e FROM Employee e WHERE e.department.name = :departmentName"),
         @NamedQuery(name = "Employee.countByDepartmentNamedQuery", query = "SELECT COUNT(e) FROM Employee e WHERE e.department.name = :departmentName")
 })
+public class Employee extends Auditable<String> {
 
-public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -46,5 +48,4 @@ public class Employee {
 
     @Column(nullable = false)
     private Double salary;
-
 }
