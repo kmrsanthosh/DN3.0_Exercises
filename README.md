@@ -15,3 +15,6 @@
 - [x] Week 2
   - [x] PLSQL
   - [x] Spring Core Maven
+
+- [x] Week 3
+  - [x] Spring Data JPA and Hibernate
