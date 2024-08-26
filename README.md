@@ -9,12 +9,22 @@
 ### Roadmap
 
 - [x] Week 1
+
   - [x] Design Patterns and Principles
   - [x] Data Structures and Algorithms
 
 - [x] Week 2
+
   - [x] PLSQL
   - [x] Spring Core Maven
 
 - [x] Week 3
+
   - [x] Spring Data JPA and Hibernate
+
+- [x] Week 4
+
+  - [x] Spring REST
+
+- [x] Week 5
+  - [x] Spring REST
